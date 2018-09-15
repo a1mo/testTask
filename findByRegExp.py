@@ -6,6 +6,7 @@ import helpers
 
 def getMatchesForRegExpInData(regExp, data):
     """
+    Receives compiled reg exp and data string and returns a list of matched strings.
 
     :param regExp: compiled regular expression pattern
     :param data: data to process
