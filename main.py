@@ -1,5 +1,5 @@
 import argparse
-from actionModule import ActionModule
+from Finder import Finder
 
 
 def main():
@@ -8,12 +8,12 @@ def main():
     argp.add_argument("-r", "--regexp")
     arguments = argp.parse_args()
 
-    actionModule = ActionModule(arguments)
+    finder = Finder(arguments.regexp)
 
-    with open(actionModule.file, encoding="utf8") as fileData:
+    with open(arguments.file, encoding="utf8") as fileData:
         data = fileData.readlines()
 
-    processedData = actionModule.processData(data)
+    processedData = finder.processData(data)
 
     with open("output.txt", mode="w", encoding="utf8") as outputFile:
         outputFile.writelines(processedData)

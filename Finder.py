@@ -2,12 +2,10 @@ import re
 from typing import List
 
 
-class ActionModule:
-    file = None
+class Finder:
     regexp = None
 
     def __init__(self, arguments):
-        self.file = arguments.file
         self.regexp = arguments.regexp
 
     def getLinesListByRegExp(self, data: List[str]) -> List[str]:
@@ -40,7 +38,7 @@ class ActionModule:
         return self.getUniqueWordsList(data)
 
     def __cleanUpData(self, data: str) -> str:
-        symbolsToRemove = ["\n", "\n", ".", ",", ":", ";", "-", "!", "?", "\"", "'"]
+        symbolsToRemove = ["\n", "\r", ".", ",", ":", ";", "-", "!", "?", "\"", "'"]
         for symbol in symbolsToRemove:
             replaceTo = ""
             if symbol in ["\n", "\r"]:
