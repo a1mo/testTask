@@ -5,8 +5,8 @@ from typing import List
 class Finder:
     regexp = None
 
-    def __init__(self, arguments):
-        self.regexp = arguments.regexp
+    def __init__(self, regexp: str = ""):
+        self.regexp = regexp
 
     def getLinesListByRegExp(self, data: List[str]) -> List[str]:
         matchLinesList = []
