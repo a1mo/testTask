@@ -28,7 +28,7 @@ class Finder:
         uniqueWords = []
         for word, count in wordCounter.items():
             if count == 1:
-                uniqueWords.append(word + "\n")
+                uniqueWords.append(word)
 
         return uniqueWords
 
@@ -38,10 +38,7 @@ class Finder:
         return self.getUniqueWordsList(data)
 
     def __cleanUpData(self, data: str) -> str:
-        symbolsToRemove = ["\n", "\r", ".", ",", ":", ";", "-", "!", "?", "\"", "'"]
+        symbolsToRemove = [".", ",", ":", ";", "-", "!", "?", "\"", "'"]
         for symbol in symbolsToRemove:
-            replaceTo = ""
-            if symbol in ["\n", "\r"]:
-                replaceTo = " "
-            data = data.replace(symbol, replaceTo)
+            data = data.replace(symbol, "")
         return data

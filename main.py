@@ -11,12 +11,13 @@ def main():
     finder = Finder(arguments.regexp)
 
     with open(arguments.file, encoding="utf8") as fileData:
-        data = fileData.readlines()
+        data = fileData.read().split("\n")
 
     processedData = finder.processData(data)
 
     with open("output.txt", mode="w", encoding="utf8") as outputFile:
-        outputFile.writelines(processedData)
+        processedDataWithNewLines = [dataItem + "\n" for dataItem in processedData ]
+        outputFile.writelines(processedDataWithNewLines)
 
 
 if __name__ == "__main__":
