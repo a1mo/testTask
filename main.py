@@ -1,6 +1,7 @@
 import logging
 import os
 import sys
+from datetime import datetime
 from Finder import Finder
 from ArgumentParser import ThrowingArgumentParser, ArgumentParserError
 
@@ -39,7 +40,7 @@ def main():
     try:
         with open(arguments.file, encoding="utf8") as fileData:
             data = fileData.read().split("\n")
-    except FileNotFoundError as e:
+    except (FileNotFoundError, IOError) as e:
         logger.error(e)
         sys.exit(e)
 
