@@ -6,6 +6,9 @@ from Finder import Finder
 from ArgumentParser import ThrowingArgumentParser, ArgumentParserError
 
 
+OUTPUT_FOLDER = "output"
+
+
 def getConfiguredLogger(logFileName: str):
     if not os.path.exists("logs"):
         os.mkdir("logs")
@@ -20,6 +23,14 @@ def getConfiguredLogger(logFileName: str):
 
     logger.addHandler(fileHandler)
     return logger
+
+
+def getOutputFilePath() -> str:
+    if not os.path.exists(OUTPUT_FOLDER):
+        os.mkdir(OUTPUT_FOLDER)
+
+    outputFileName = "output_{}.txt".format(datetime.timestamp(datetime.utcnow()))
+    return os.path.join(OUTPUT_FOLDER, outputFileName)
 
 
 def main():
@@ -47,10 +58,11 @@ def main():
     processedData = finder.processData(data)
     logger.info("data processed")
 
-    with open("output.txt", mode="w", encoding="utf8") as outputFile:
+    outputFilePath = getOutputFilePath()
+    with open(outputFilePath, mode="w", encoding="utf8") as outputFile:
         processedDataWithNewLines = [dataItem + "\n" for dataItem in processedData]
         outputFile.writelines(processedDataWithNewLines)
-    message = "success: saved to output file"
+    message = "success: saved to {}".format(outputFilePath)
     logger.info(message)
     sys.exit(message)
 
