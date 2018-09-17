@@ -69,7 +69,7 @@ def main():
         outputFile.writelines(processedDataWithNewLines)
     message = "success: saved to {}".format(outputFilePath)
     logger.info(message)
-    sys.exit(message)
+    print(message)
 
 
 if __name__ == "__main__":
