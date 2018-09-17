@@ -48,10 +48,15 @@ def main():
 
     finder = Finder(arguments.regexp)
 
+    if not os.path.isfile(arguments.file):
+        message = "\"{}\" is not a file".format(arguments.file)
+        logger.error(message)
+        sys.exit(message)
+
     try:
         with open(arguments.file, encoding="utf8") as fileData:
             data = fileData.read().split("\n")
-    except (FileNotFoundError, IOError) as e:
+    except IOError as e:
         logger.error(e)
         sys.exit(e)
 
