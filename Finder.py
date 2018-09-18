@@ -18,7 +18,8 @@ class Finder:
     def getUniqueWordsList(self, data: List[str]) -> List[str]:
         joinedData = ' '.join(data)
         clearedData = self.__cleanUpData(joinedData)
-        splittedData = clearedData.split()
+        lowerData = clearedData.lower()
+        splittedData = lowerData.split()
         wordCounter = {}
         for word in splittedData:
             if not wordCounter.get(word):
