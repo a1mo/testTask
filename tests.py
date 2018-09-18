@@ -8,7 +8,7 @@ class FinderTests(unittest.TestCase):
         finder = Finder("\[(.*?)\]")
         data = ["some text with [special] words", "in [square] brackets", "separated by lines"]
         processedData = finder.processData(data)
-        self.assertEqual(data[:1], processedData)
+        self.assertEqual(data[:2], processedData)
 
     def testGetUniqueWords(self):
         finder = Finder()
