@@ -38,8 +38,8 @@ def main():
     logger.info('script started')
 
     argp = ThrowingArgumentParser()
-    argp.add_argument("file")
-    argp.add_argument("-r", "--regexp")
+    argp.add_argument("file", type = str)
+    argp.add_argument("-r", "--regexp", type = str)
     try:
         arguments = argp.parse_args()
     except ArgumentParserError as e:
