@@ -38,7 +38,11 @@ class Finder:
         return self.getUniqueWordsList(data)
 
     def __cleanUpData(self, data: str) -> str:
-        symbolsToRemove = [".", ",", ":", ";", "-", "!", "?", "\"", "'"]
+        symbolsToRemove = [
+            ".", ",", ":", ";", "_", "-", "+", "=", "!", "?",
+            "*", "/", "\\", "\"", "'", "~",
+            "[", "]", "{", "}", "(", ")",
+        ]
         for symbol in symbolsToRemove:
             data = data.replace(symbol, "")
         return data
