@@ -6,9 +6,9 @@ class FinderTest(unittest.TestCase):
 
     def testGetLinesByRegExp(self):
         finder = Finder("\[(.*?)\]")
-        data = ["some text with [special] words", "in [square] brackets", "separated by lines"]
-        processedData = finder.processData(data)
-        self.assertEqual(data[:2], processedData)
+        expectedResult = ["some text with [special] words", "in [square] brackets"]
+        processedData = finder.processData(expectedResult + ["separated by lines"])
+        self.assertEqual(expectedResult, processedData)
 
     def testGetUniqueWords(self):
         finder = Finder()
