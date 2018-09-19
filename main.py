@@ -60,8 +60,14 @@ def main():
         logger.error(e)
         sys.exit(e)
 
-    processedData = finder.processData(data)
+    try:
+        processedData = finder.processData(data)
+    except Exception as e:
+        logger.error(e)
+        sys.exit(e)
+
     logger.info("data processed")
+
     processedDataWithNewLines = [it + "\n" for it in processedData]
 
     outputFilePath = getOutputFilePath()
