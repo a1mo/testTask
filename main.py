@@ -9,14 +9,14 @@ from ArgumentParser import ThrowingArgumentParser, ArgumentParserError
 OUTPUT_FOLDER = "output"
 
 
-def getConfiguredLogger(logFileName: str):
+def createLogger(loggerName: str):
     if not os.path.exists("logs"):
         os.mkdir("logs")
 
-    logger = logging.getLogger(logFileName)
+    logger = logging.getLogger(loggerName)
     logger.setLevel(logging.INFO)
 
-    fileHandler = logging.FileHandler("logs/{}.log".format(logFileName))
+    fileHandler = logging.FileHandler("logs/report.log")
 
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - line %(lineno)d: %(message)s')
     fileHandler.setFormatter(formatter)
@@ -34,7 +34,7 @@ def getOutputFilePath() -> str:
 
 
 def main():
-    logger = getConfiguredLogger(__name__)
+    logger = createLogger(__name__)
     logger.info('script started')
 
     argp = ThrowingArgumentParser()
