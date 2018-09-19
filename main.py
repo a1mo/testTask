@@ -2,8 +2,8 @@ import logging
 import os
 import sys
 from datetime import datetime
-from Finder import Finder
-from ArgumentParser import ThrowingArgumentParser, ArgumentParserError
+from libs.Finder import Finder
+from libs.ArgumentParser import ThrowingArgumentParser, ArgumentParserError
 
 
 OUTPUT_FOLDER = "output"

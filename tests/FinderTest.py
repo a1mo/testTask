@@ -1,5 +1,5 @@
 import unittest
-from Finder import Finder
+from libs.Finder import Finder
 
 
 class FinderTest(unittest.TestCase):
