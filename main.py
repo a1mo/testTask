@@ -46,6 +46,8 @@ def main():
         logger.error(e)
         sys.exit(e)
 
+    logger.info("got arguments: {}".format(arguments))
+
     finder = Finder(arguments.regexp)
 
     if not os.path.isfile(arguments.file):
