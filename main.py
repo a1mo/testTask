@@ -62,10 +62,10 @@ def main():
 
     processedData = finder.processData(data)
     logger.info("data processed")
+    processedDataWithNewLines = [it + "\n" for it in processedData]
 
     outputFilePath = getOutputFilePath()
     with open(outputFilePath, mode="w", encoding="utf8") as outputFile:
-        processedDataWithNewLines = [dataItem + "\n" for dataItem in processedData]
         outputFile.writelines(processedDataWithNewLines)
     message = "success: saved to {}".format(outputFilePath)
     logger.info(message)
