@@ -2,7 +2,7 @@ import unittest
 from Finder import Finder
 
 
-class FinderTests(unittest.TestCase):
+class FinderTest(unittest.TestCase):
 
     def testGetLinesByRegExp(self):
         finder = Finder("\[(.*?)\]")
